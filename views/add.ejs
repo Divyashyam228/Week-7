@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Add Task</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <div class="form-container">
+    <h2>Add New Task</h2>
+
+    <form action="/add" method="POST">
+      <input name="title" placeholder="Title" required>
+
+      <input name="description" placeholder="Description" required>
+
+      <input name="assignedTo" placeholder="Assign To" required>
+
+      <select name="status">
+        <option>To Do</option>
+        <option>In Progress</option>
+        <option>Completed</option>
+      </select>
+
+      <input type="date" name="deadline" required>
+      
+      <select name="priority">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+
+      <input name="comments" placeholder="Comments" required>
+
+      <button type="submit">Add Task</button>
+    </form>
+  </div>
+
+</body>
+
+</html>

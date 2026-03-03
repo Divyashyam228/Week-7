@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div style="max-width: 1100px; margin: auto;">
+
+<h1>Task Dashboard</h1>
+
+<a href="/add">+ Add New Task</a>
+
+<table border="1">
+  <tr>
+    <th>Title</th>
+    <th>Assigned</th>
+    <th>Status</th>
+    <th>Deadline</th>
+    <th>Priority</th>
+    <th>Comments</th>
+    <th>Actions</th>
+  </tr>
+
+  <% tasks.forEach(task => { %>
+    <tr>
+      <td><%= task.title %></td>
+      <td><%= task.assignedTo %></td>
+      <td><%= task.status %></td>
+      <td>
+  <%= task.deadline ? new Date(task.deadline).toDateString() : "No deadline" %>
+</td>
+<td>
+  <span class="priority <%= task.priority?.toLowerCase() %>">
+    <%= task.priority %>
+  </span>
+</td>
+      <td><%= task.comments ? task.comments : "No comments" %></td>
+      
+      <td>
+        <a href="/edit/<%= task._id %>">Edit</a>
+        <a href="/delete/<%= task._id %>">Delete</a>
+      </td>
+    </tr>
+  <% }) %>
+
+</table>
+
+</body>
+</html>

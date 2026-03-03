@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Edit Task</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <div class="form-container">
+    <h2>Edit Task</h2>
+
+    <form action="/edit/<%= task._id %>" method="POST">
+
+      <input name="title" value="<%= task.title %>">
+
+      <input name="description" value="<%= task.description %>">
+
+      <input name="assignedTo" value="<%= task.assignedTo %>">
+
+      <select name="status">
+        <option <%=task.status==="To Do" ?"selected":"" %>>To Do</option>
+        <option <%=task.status==="In Progress" ?"selected":"" %>>In Progress</option>
+        <option <%=task.status==="Completed" ?"selected":"" %>>Completed</option>
+      </select>
+
+      <input type="date" name="deadline" value="<%= task.deadline ? task.deadline.toISOString().split('T')[0] : '' %>">
+
+      <select name="priority">
+        <option <%=task.priority==="Low" ?"selected":"" %>>Low</option>
+        <option <%=task.priority==="Medium" ?"selected":"" %>>Medium</option>
+        <option <%=task.priority==="High" ?"selected":"" %>>High</option>
+      </select>
+
+      <input name="comments" value="<%= task.comments %>">
+
+      <button type="submit">Update Task</button>
+    </form>
+  </div>
+
+</body>
+
+</html>
